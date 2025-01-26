@@ -7,7 +7,7 @@ Section: __07__.
 Team Mates:
 1. __Amni Nuwairah binti Abdul Hanan__ and __2318436__
 2. __Fariz Husni bin Che Ghani__ and __2212213__
-3. __Noor Zafirah Alya binti Noor Shizarin__ and __2316126__
+3. __Noor Zafirah Alya binti Noor Shizari__ and __2316126__
 4. __Yasmin Hanani Salsabila binti Md Hakiim__ and __2318740__
 
 ## Rules
