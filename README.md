@@ -58,9 +58,9 @@ Team Mates:
 
 ***Questions:***
 
-1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** __Fill answer here__.
-2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** __Fill answer here__.
-3. Why must we commit and sync our current work on source control? ***(1 mark)*** __Fill answer here__.
+1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** __Ubuntu Linux.__.
+2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** __(1) 2 vCPUs, 8 GB RAM, and 32 GB disk, (2) 4 vCPUs, 16 GB RAM, and 32 GB disk__.
+3. Why must we commit and sync our current work on source control? ***(1 mark)*** __It is to ensure that our changes are saved to the repository. Without committing and syncing, our work could be lost, and it wouldn't be reflected in the main repository when the project is submitted. Committing saves the changes in your local branch, and syncing pushes these changes to the remote repository, keeping everything updated.__.
 
 ## Exploring the Terminal
 
