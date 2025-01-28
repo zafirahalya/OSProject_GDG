@@ -402,13 +402,14 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** __Fill answer here__.
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Fill answer here__.
+1. Are files in the container persistent. Why not?. ***(1 mark)*** __No, files in the container are not persistent. In the output, after creating the file helloworld.txt inside the container and stopping the container (docker stop), the file remained accessible when the container was restarted (docker restart). However, once the container was deleted using docker rm, all the files inside the container, including helloworld.txt, were lost. This happens because Docker containers are ephemeral by design, and their file system only exists as long as the container exists. To retain data, you need to use Docker volumes or bind mounts, which allow data to persist outside the container__.
+
+2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Yes, it is possible to run multiple instances of Debian Linux. Docker allows you to create and run as many containers as your system resources (CPU, memory, storage) can handle. Each container is isolated and operates independently. For example, using the docker run command, you can start multiple containers, each with its own unique ID and name. The output shows the creation of a single Debian container (gallant_beaver), but running multiple containers is straightforward using the same docker run command__.
 
 ## Running your own container with persistent storage
 
 1. In the previous experiment, you might have notice that containers are not persistent. To make storage persistent, you will need to mount them. 
-At the terminal, create a new directory called **myroot**, and run a instance of debian linux and mount myroot to the container. Find out the exact path of my root, and mount it as the root folder in the debian container. 
+At the terminal, create a new directory called **myroot**, and run an instance of debian linux and mount myroot to the container. Find out the exact path of my root, and mount it as the root folder in the debian container. 
 2. Create a file in /root on the container, the files should also appear in myroot of your host VM.
 
 ```bash 
@@ -422,14 +423,19 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __From the output: -rw-rw-rw- 1 root root 24 Jan 28 08:36 testfile.txt__.
+__- User : root__
+__- Group : root__
+__The file testfile.txt created inside the Docker container has the ownership assigned to the root user and the root group on the host machine because the Docker container runs as the root user by default, and any files created are owned by the root user/group unless specified otherwise.__
+
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
 ```bash
 //use sudo and chown
 sudo chown -R codespace:codespace myroot
 
 ```
-*** __Fill answer here__.***
+*** __Yes, the permissions of the files in /workspaces/OSProject_GDG/myroot were successfully changed to the codespace user and group.__.***
+__The output : -rw-rw-rw- 1 codespace codespace 24 Jan 28 08:36 testfile.txt confirms that the ownership of the file testfile.txt has been changed to the codespace user and codespace group.__
 
 ## You are on your own, create your own static webpage
 
