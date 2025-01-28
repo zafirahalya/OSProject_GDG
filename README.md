@@ -78,6 +78,7 @@ codespace
 Look at the TERMINAL tab. Run the following commands and provide the output here. 
 
 1. Run the command **pwd** . ***(1 mark)*** __/workspaces/OSProject_GDG__.
+
 2. Run the command **cat /etc/passwd** . ***(1 mark)***
 __root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
@@ -104,6 +105,7 @@ systemd-resolve:x:103:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
 messagebus:x:104:105::/nonexistent:/usr/sbin/nologin
 codespace:x:1000:1000::/home/codespace:/bin/bash
 sshd:x:105:65534::/run/sshd:/usr/sbin/nologin__.
+
 3. Run the command **df** . ***(1 mark)*** 
 __Filesystem     1K-blocks     Used Available Use% Mounted on
 overlay         32847680 10706612  20446968  35% /
@@ -112,6 +114,7 @@ shm                65536        0     65536   0% /dev/shm
 /dev/root       30298176 13271628  17010164  44% /vscode
 /dev/sda1       46127956 18737784  25014596  43% /tmp
 /dev/loop4      32847680 10706612  20446968  35% /workspaces__.
+
 4. Run the command **du** . ***(1 mark)***
 __8       ./.git/refs/heads
 4       ./.git/refs/tags
@@ -212,7 +215,9 @@ __8       ./.git/refs/heads
 2772    ./.git
 1972    ./images
 4768    .__.
+
 5. Run the command **ls** . ***(1 mark)*** __README.md  images__.
+
 6. Run the command **ls -asl** . ***(1 mark)***
 __total 40
  4 drwxrwxrwx+ 4 codespace root  4096 Jan 26 06:39 .
@@ -220,10 +225,12 @@ __total 40
  4 drwxrwxrwx+ 9 codespace root  4096 Jan 28 07:38 .git
 24 -rw-rw-rw-  1 codespace root 22152 Jan 28 07:41 README.md
  4 drwxrwxrwx+ 2 codespace root  4096 Jan 26 06:39 images__.
+
 7. Run the command **free -h** . ***(1 mark)***
 __              total        used        free      shared  buff/cache   available
 Mem:          7.7Gi       1.2Gi       289Mi        62Mi       6.2Gi       6.2Gi
 Swap:            0B          0B          0B__.
+
 8. Run the command **cat /proc/cpuinfo** . ***(1 mark)***
 __processor     : 0
 vendor_id       : AuthenticAMD
@@ -280,6 +287,7 @@ clflush size    : 64
 cache_alignment : 64
 address sizes   : 48 bits physical, 48 bits virtual
 power management:__.
+
 9. Run the command **top** and type **q** to quit. ***(1 mark)***
 __processor       : 1
 vendor_id       : AuthenticAMD
@@ -313,19 +321,28 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6253.4 avail Mem
       1 codespa+  20   0    1136    640    640 S   0.0   0.0   0:00.05 docker-init                          
       7 codespa+  20   0    7236   1792   1792 S   0.0   0.0   0:00.02 sleep                                
      35 root      20   0   12196   3480   2560 S   0.0   0.0   0:00.00 sshd     __.
+
 10. Run the command **uname -a**. ***(1 mark)*** __Linux codespaces-24a938 6.5.0-1025-azure #26~22.04.1-Ubuntu SMP Thu Jul 11 22:33:04 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux__.
+
 11. What is the available free memory in the system. ***(1 mark)*** __6.2 GiB (as shown under the "available" column in the free -h output)__.
+
 12. What is the available disk space mounted on /workspace. ***(1 mark)*** __20,446,968 KB or approximately 20.4 GiB (from the df output under the "Available" column for /workspaces)__.
+
 13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** __Version: 6.5.0-1025-azure #26~22.04.1-Ubuntu SMP Thu Jul 11 22:33:04 UTC 2024, Architecture: x86_64(as shown in the uname -a output)__.
+
 14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)***
 __ls: Lists the names of files and directories in the current directory.__
 __ls -asl: Lists files and directories with additional details, such as:__
 - __a: Includes hidden files (those starting with .)__.
 - __s: Displays the size in blocks__.
 - __l: Provides a long format, showing details like permissions, owner, group, size, and modification time__.
+
 15. What is the TLB size of the Virtual CPU. ***(1 mark)*** __2560 4K pages (as shown in the cat /proc/cpuinfo output under "TLB size")__.
+
 16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** __2955.591 MHz (as shown in the cat /proc/cpuinfo output under "cpu MHz" for processor 1)__.
+
 17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** __Node.js process (PID 2794) (from the top output, it consumes 1.0% CPU, which is the highest among the listed processes)__.
+
 
 ## Running your own container instance.
 
