@@ -446,7 +446,7 @@ __The output : -rw-rw-rw- 1 codespace codespace 24 Jan 28 08:36 testfile.txt con
 ## the -p 8080:80 flag points the host port 8080 to the container port 80
 
 docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ -p 8080:80 httpd
-
+```
 
 4. If it works, codespace will trigger a port assignment and provide a URL for you to access your webpage like the one below.
 
@@ -461,9 +461,12 @@ docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ 
 
 ***Questions:***
 
-1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** __Fill answer here__.
-2. What port is the apache web server running. ***(1 mark)*** __Fill answer here__.
-3. What port is open for http protocol on the host machine? ***(1 mark)*** __Fill answer here__.
+1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)***
+__The folder /usr/local/apache2/htdocs/ is owned by the root user and root group by default when using the official httpd Docker image. The permissions are typically 755 (drwxr-xr-x), meaning the owner (root) has full access, while others have read and execute permissions__.
+
+2. What port is the apache web server running. ***(1 mark)*** __The Apache web server is running inside the container on port 80 (httpd serves content on port 80 by default)__.
+
+3. What port is open for http protocol on the host machine? ***(1 mark)*** __The host machine has port 8080 open for HTTP protocol, as seen in the _docker ps_ output: 0.0.0.0:8080->80/tcp, [::]:8080->80/tcp__.
 
 ## Create SUB Networks
 
