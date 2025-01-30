@@ -509,8 +509,12 @@ docker exec c1 ping c2
 ```
 ***Questions:***
 
-1. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
-2. What is different from the previous ping in the section above? ***(1 mark)*** __Fill answer here__.
+1. Are you able to ping? Show your output . ***(1 mark)*** __Yes, now c1 can ping c2. The output: PING c2 (172.20.0.3): 56 data bytes
+64 bytes from 172.20.0.3: seq=0 ttl=64 time=6.943 ms
+64 bytes from 172.20.0.3: seq=1 ttl=64 time=0.156 ms
+64 bytes from 172.20.0.3: seq=2 ttl=64 time=0.126 ms
+64 bytes from 172.20.0.3: seq=3 ttl=64 time=0.143 ms__.
+2. What is different from the previous ping in the section above? ***(1 mark)*** __Previously, the ping failed because c1 and c2 were in completely separate networks which are bluenet and rednet with no route between them. Now, after connecting both containers to the bridgenet network, they share a common network, allowing communication__.
 
 ## Intermediate Level (10 marks bonus)
 
