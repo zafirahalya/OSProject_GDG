@@ -659,7 +659,7 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 ***Questions:***
 
 1. What is the output of step 5 above, explain the error? ***(1 mark)*** __The output in command prompt is curl: (7) Failed to connect to localhost port 3000 after 2265 ms: Could not connect to server
-The error Could not connect to server occurs because the Node.js server running inside the Docker container is not properly listening on port 3000 or there is a network connectivity issue.__.
+The error Could not connect to server occurs because the Node.js server running inside the Docker container is not properly listening on port 3000 or there is a network connectivity issue.__
 2. Show the instruction needed to make this work. ***(1 mark)*** __Make sure the Node.js server is running inside the container:
 1.The Node.js server should be running and listening on port 3000. You can confirm this by checking the logs of the container or ensuring the CMD command in the Dockerfile starts the server.
 2.Ensure the correct port mapping when running the container:
@@ -675,7 +675,7 @@ docker run --name nodejs-container --network nodejsnet -p 3000:3000 -d nodejs-ap
 >ps aux | grep node
 
 5.Ensure your MySQL connection is working correctly:
-Verify that the MySQL connection inside the Node.js application is established successfully and that no errors are occurring.__.
+Verify that the MySQL connection inside the Node.js application is established successfully and that no errors are occurring.__
 
 
 
