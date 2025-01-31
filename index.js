@@ -1,45 +1,32 @@
-const express = require('express');
-const mysql = require('mysql');
+/*!
+ * toidentifier
+ * Copyright(c) 2016 Douglas Christopher Wilson
+ * MIT Licensed
+ */
 
-const app = express();
-const port = 3000;
+'use strict'
 
-// Create a MySQL connection
-const connection = mysql.createConnection({
-  host: 'mysql-container',
-  user: 'myuser',
-  password: 'mypassword',
-  database: 'mydatabase'
-});
+/**
+ * Module exports.
+ * @public
+ */
 
-// Connect to MySQL
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to MySQL:', err);
-    return;
-  }
-  console.log('Connected to MySQL');
-});
+module.exports = toIdentifier
 
-// Define a route to get a random row
-app.get('/random', (req, res) => {
-  const query = 'SELECT * FROM mytable ORDER BY RAND() LIMIT 1';
-  connection.query(query, (err, results) => {
-    if (err) {
-      console.error('Error executing query:', err);
-      res.status(500).send('Server Error');
-      return;
-    }
-    res.json(results[0]);
-  });
-});
+/**
+ * Trasform the given string into a JavaScript identifier
+ *
+ * @param {string} str
+ * @returns {string}
+ * @public
+ */
 
-// Start the server
-app.listen(3000, () => {
-  console.log('Server running at http://localhost:3000');
-});
-
-app.listen(3000, '0.0.0.0', () => {
-    console.log(`Server running at http://localhost:3000`);
-  });
-  
+function toIdentifier (str) {
+  return str
+    .split(' ')
+    .map(function (token) {
+      return token.slice(0, 1).toUpperCase() + token.slice(1)
+    })
+    .join('')
+    .replace(/[^ _0-9a-z]/gi, '')
+}
