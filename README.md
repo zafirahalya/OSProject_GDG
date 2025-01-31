@@ -509,12 +509,13 @@ docker exec c1 ping c2
 ```
 ***Questions:***
 
-1. Are you able to ping? Show your output . ***(1 mark)*** __Yes, now c1 can ping c2. The output: PING c2 (172.20.0.3): 56 data bytes
+1. Are you able to ping? Show your output . ***(1 mark)*** __Yes, now c1 can ping c2. The output:
+PING c2 (172.20.0.3): 56 data bytes
 64 bytes from 172.20.0.3: seq=0 ttl=64 time=6.943 ms
 64 bytes from 172.20.0.3: seq=1 ttl=64 time=0.156 ms
 64 bytes from 172.20.0.3: seq=2 ttl=64 time=0.126 ms
 64 bytes from 172.20.0.3: seq=3 ttl=64 time=0.143 ms__.
-2. What is different from the previous ping in the section above? ***(1 mark)*** __Previously, the ping failed because c1 and c2 were in completely separate networks which are bluenet and rednet with no route between them. Now, after connecting both containers to the bridgenet network, they share a common network, allowing communication__.
+3. What is different from the previous ping in the section above? ***(1 mark)*** __Previously, the ping failed because c1 and c2 were in completely separate networks which are bluenet and rednet with no route between them. Now, after connecting both containers to the bridgenet network, they share a common network, allowing communication__.
 
 ## Intermediate Level (10 marks bonus)
 
@@ -657,8 +658,24 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 
 ***Questions:***
 
-1. What is the output of step 5 above, explain the error? ***(1 mark)*** __Fill answer here__.
-2. Show the instruction needed to make this work. ***(1 mark)*** __Fill answer here__.
+1. What is the output of step 5 above, explain the error? ***(1 mark)*** __The output in command prompt is curl: (7) Failed to connect to localhost port 3000 after 2265 ms: Could not connect to server
+The error Could not connect to server occurs because the Node.js server running inside the Docker container is not properly listening on port 3000 or there is a network connectivity issue.__.
+2. Show the instruction needed to make this work. ***(1 mark)*** __Make sure the Node.js server is running inside the container:
+1.The Node.js server should be running and listening on port 3000. You can confirm this by checking the logs of the container or ensuring the CMD command in the Dockerfile starts the server.
+2.Ensure the correct port mapping when running the container:
+
+When starting the Node.js container, make sure you are mapping port 3000 inside the container to port 3000 on the host machine. The correct command should look like this:
+
+docker run --name nodejs-container --network nodejsnet -p 3000:3000 -d nodejs-app
+
+3.Check the status of the running container: Make sure the container is running and listening on port 3000.
+
+4.Check if the Node.js server is running inside the container:
+>docker exec -it nodejs-container bash
+>ps aux | grep node
+
+5.Ensure your MySQL connection is working correctly:
+Verify that the MySQL connection inside the Node.js application is established successfully and that no errors are occurring.__.
 
 
 
